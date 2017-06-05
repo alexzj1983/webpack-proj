@@ -1,33 +1,15 @@
-var path = require('path')
-var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
-  entry: ['./asset/main'],
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+  entry: './asset/js/index.js',
+  output:{
+    filename:'main.js',
+    path:path.resolve(__dirname,'dist')
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false,
-      },
-    })
-  ],
-  module: {
-    loaders: [{
-      test:/\.json$/,
-      loader:'json'
-    }, {
-      test: /\.css$/,
-      loaders: ['style', 'css']
-    }, {
-      test: /\.(png|jpg)$/,
-      loader: 'url?name=./static/img/[hash:8].[name].[ext]'
-        // 'file?hash=sha512&digest=hex&name=[hash].[ext]',
-        // 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-        
-      
+  module:{
+    rules:[{
+      test:/\.css$/,
+      use:['style-loader','css-loader']
     }]
   }
 }
