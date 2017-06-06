@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+#root{
+    color:#ff9900;
+    font-family: "\5FAE\8F6F\96C5\9ED1";
+    font-size: 18px;
+    font-weight: bold;
+    width: 500px;
+    height: 500px;
+    /*background-image: url(../img/img.jpg);*/
+}
+
