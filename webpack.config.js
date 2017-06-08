@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     main:'./asset/js/index.js'
     ,
-    vendor:['moment','lodash']
+    vendor:['moment','lodash','jquery']
     
   },
   output:{
@@ -16,18 +16,24 @@ module.exports = {
     path:path.resolve(__dirname,'dist')
   },
   module:{
-    rules:[{
-      test:/\.css$/,
-      use:ExtractTextPlugin.extract({
-        use:'css-loader'
-      })
-    }]
+    rules:[
+      {
+        test:/\.css$/,
+        use:ExtractTextPlugin.extract({
+          use:'css-loader'
+        })
+      }
+    ]
   },
   plugins:[
     // new ExtractTextPlugin('[name].[chunkhash].css'),
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.CommonsChunkPlugin({
       name:'vendor'
+    }),
+    new webpack.ProvidePlugin({
+      $:'jquery',
+      jQuery:'jquery'
     })
   ]
 }
