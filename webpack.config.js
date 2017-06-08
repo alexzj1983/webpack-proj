@@ -5,11 +5,14 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    main:'./asset/js/index.js',
-    vendor:'moment'
+    main:'./asset/js/index.js'
+    ,
+    vendor:['moment','lodash']
+    
   },
   output:{
-    filename:'[name].[chunkhash].js',
+    // filename:'[name].[chunkhash].js',
+    filename:'[name].js',
     path:path.resolve(__dirname,'dist')
   },
   module:{
@@ -21,7 +24,8 @@ module.exports = {
     }]
   },
   plugins:[
-    new ExtractTextPlugin('[name].[chunkhash].css'),
+    // new ExtractTextPlugin('[name].[chunkhash].css'),
+    new ExtractTextPlugin('[name].css'),
     new webpack.optimize.CommonsChunkPlugin({
       name:'vendor'
     })

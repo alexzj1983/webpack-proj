@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import '../css/index.css';
+import '';
+import moment from 'moment';
 
-var moment = require('moment');
 console.log(moment().format());
 
 function component(){
